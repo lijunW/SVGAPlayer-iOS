@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/siriusicy/SVGAPlayer-iOS.git", :tag => s.version }
   s.subspec 'Core' do |ss|
-    ss.source_files  = "Source/*.{h,m}"
+    ss.source_files  = "Source/*.{h,m}", "Source/Tool/*.{h,m}"
     ss.requires_arc = true
     ss.dependency 'SSZipArchive', '>= 1.8.1'
     ss.library = "z"
