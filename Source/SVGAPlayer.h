@@ -38,6 +38,7 @@ typedef void(^SVGAPlayerDynamicDrawingBlock)(CALayer *contentLayer, NSInteger fr
 - (void)startAnimationWithRange:(NSRange)range reverse:(BOOL)reverse;
 - (void)pauseAnimation;
 - (void)stopAnimation;
+- (void)stopAnimation:(BOOL)clear ;
 - (void)clear;
 - (void)stepToFrame:(NSInteger)frame andPlay:(BOOL)andPlay;
 - (void)stepToPercentage:(CGFloat)percentage andPlay:(BOOL)andPlay;
