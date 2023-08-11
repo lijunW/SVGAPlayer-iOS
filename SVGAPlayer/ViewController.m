@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "SVGA.h"
+#import "SVGAImageView.h"
+
 
 @interface ViewController ()<SVGAPlayerDelegate>
 
@@ -23,15 +25,25 @@ static SVGAParser *parser;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.aPlayer.delegate = self;
-    self.aPlayer.loops = 1;
-    self.aPlayer.clearsAfterStop = YES;
-    parser = [[SVGAParser alloc] init];
-    [self onChange:nil];
+    self.view.backgroundColor = [UIColor whiteColor];
     
+//    self.aPlayer.delegate = self;
+//    self.aPlayer.loops = 1;
+//    self.aPlayer.clearsAfterStop = YES;
+//    parser = [[SVGAParser alloc] init];
+//    [self onChange:nil];
     
+    SVGAImageView *imageV = [[SVGAImageView alloc] init];
+    imageV.backgroundColor = [UIColor greenColor];
+    imageV.frame = CGRectMake(100, 100, 200, 200);
+    //
+//    imageV.imageUrl = @"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga";
+    //
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"svga"];
+    imageV.imageData = [NSData dataWithContentsOfFile:filePath];
     
-    
+    [self.view addSubview:imageV];
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
