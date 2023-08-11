@@ -28,6 +28,10 @@ static SVGAParser *parser;
     self.aPlayer.clearsAfterStop = YES;
     parser = [[SVGAParser alloc] init];
     [self onChange:nil];
+    
+    
+    
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

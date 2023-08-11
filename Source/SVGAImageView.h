@@ -10,7 +10,9 @@
 
 @interface SVGAImageView : SVGAPlayer
 
-@property (nonatomic, assign) IBInspectable BOOL autoPlay;
-@property (nonatomic, strong) IBInspectable NSString *imageName;
+@property (nonatomic, assign) IBInspectable BOOL autoPlay; ///< 自动播放(默认YES)
+//@property (nonatomic, strong) IBInspectable NSString *imageName;
+@property (nonatomic, strong) IBInspectable NSData *imageData;
+@property (nonatomic, copy) IBInspectable NSString *imageUrl; ///< 线上image地址
 
 @end
