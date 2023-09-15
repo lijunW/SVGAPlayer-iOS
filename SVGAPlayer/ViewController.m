@@ -40,8 +40,26 @@ static SVGAParser *parser;
 //    imageV.imageUrl = @"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga";
     //
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"svga"];
-    imageV.imageData = [NSData dataWithContentsOfFile:filePath];
+//    imageV.imageData = [NSData dataWithContentsOfFile:filePath];
     
+#pragma mark -  加载data
+    // 方法1:
+    //    imageV.imageData = [NSData dataWithContentsOfFile:filePath];
+    // 方法2:
+//    [imageV loadImageData:[NSData dataWithContentsOfFile:filePath] complete:^(SVGAVideoEntity * _Nonnull videoItem) {
+//        imageV.videoItem = videoItem;
+//        [imageV startAnimation];
+//    }];
+
+#pragma mark -  加载url
+    // 方法1:
+    //    imageV.imageUrl = @"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga";
+    // 方法2:
+    [imageV loadImageUrl:@"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga" complete:^(SVGAVideoEntity * _Nonnull videoItem) {
+        imageV.videoItem = videoItem;
+        [imageV startAnimation];
+    }];
+
     [self.view addSubview:imageV];
 
 }

@@ -55,29 +55,50 @@ static SVGAParser *sharedParser;
 //    }
 //}
 
-- (void)setImageData:(NSData *)imageData{
+//加载imageData带回调, 需要在回调中自行处理播放逻辑
+- (void)loadImageData:(NSData *)imageData
+             complete:(void(^_Nullable)(SVGAVideoEntity * _Nonnull videoItem))completeBlock {
+    
     _imageData = imageData;
-
+    
     [sharedParser parseWithData:imageData cacheKey:[NSString md5WithData:imageData] completionBlock:^(SVGAVideoEntity * _Nonnull videoItem) {
-        [self setVideoItem:videoItem];
-        if (self.autoPlay) {
-            [self startAnimation];
+        if (completeBlock) {
+            completeBlock(videoItem);
+        } else {
+            [self setVideoItem:videoItem];
+            if (self.autoPlay) {
+                [self startAnimation];
+            }
         }
     } failureBlock:^(NSError * _Nonnull error) {
         
     }];
+    
+}
+//加载imageData带回调, 需要在回调中自行处理播放逻辑
+- (void)loadImageUrl:(NSString *)imageUrl
+            complete:(void(^_Nullable)(SVGAVideoEntity * _Nonnull videoItem))completeBlock {
+    _imageUrl = imageUrl;
+    
+    [sharedParser parseWithURL:[NSURL URLWithString:imageUrl] completionBlock:^(SVGAVideoEntity * _Nullable videoItem) {
+        if (completeBlock) {
+            completeBlock(videoItem);
+        } else {
+            [self setVideoItem:videoItem];
+            if (self.autoPlay) {
+                [self startAnimation];
+            }
+        }
+    } failureBlock:nil];
+}
+
+#pragma mark -  set/get
+- (void)setImageData:(NSData *)imageData{
+    [self loadImageData:imageData complete:nil];
 }
 
 - (void)setImageUrl:(NSString *)imageUrl {
-    
-    _imageUrl = imageUrl;
-    [sharedParser parseWithURL:[NSURL URLWithString:imageUrl] completionBlock:^(SVGAVideoEntity * _Nullable videoItem) {
-        [self setVideoItem:videoItem];
-        if (self.autoPlay) {
-            [self startAnimation];
-        }
-    } failureBlock:nil];
-    
+    [self loadImageUrl:imageUrl complete:nil];
 }
 
 @end

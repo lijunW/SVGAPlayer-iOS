@@ -15,4 +15,11 @@
 @property (nonatomic, strong) IBInspectable NSData *imageData;
 @property (nonatomic, copy) IBInspectable NSString *imageUrl; ///< 线上image地址
 
+//加载imageData带回调, 需要在回调中自行处理播放逻辑, 如果想走默认播放逻辑, completeBlock传nil
+- (void)loadImageData:(NSData *)imageData
+             complete:(void(^_Nullable)(SVGAVideoEntity * _Nonnull videoItem))completeBlock;
+//加载imageData带回调, 需要在回调中自行处理播放逻辑, 如果想走默认播放逻辑, completeBlock传nil
+- (void)loadImageUrl:(NSString *_Nonnull)imageUrl
+             complete:(void(^_Nullable)(SVGAVideoEntity * _Nonnull videoItem))completeBlock;
+
 @end
