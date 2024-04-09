@@ -39,7 +39,7 @@ static SVGAParser *parser;
     //
 //    imageV.imageUrl = @"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga";
     //
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"svga"];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"svga"];
 //    imageV.imageData = [NSData dataWithContentsOfFile:filePath];
     
 #pragma mark -  加载data
@@ -55,13 +55,29 @@ static SVGAParser *parser;
     // 方法1:
     //    imageV.imageUrl = @"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga";
     // 方法2:
-    [imageV loadImageUrl:@"https://cdn.jsdelivr.net/gh/svga/SVGA-Samples@master/EmptyState.svga" complete:^(SVGAVideoEntity * _Nonnull videoItem) {
-        imageV.videoItem = videoItem;
-        [imageV startAnimation];
-    }];
+    
+    ///气球
+    NSString *path = @"https://static-dev.dhsf.996box.com/box_test/gift_animation/65129374e8113.svga";
+    
+    ///信封
+    NSString *path2 = @"https://static-dev.dhsf.996box.com/box_test/gift_animation/65129374e8113.svga";
+
+    [imageV loadImageUrl:path2 complete:nil];
 
     [self.view addSubview:imageV];
-
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        BOOL isin = [SVGAImageView checkIsInCache:path2];
+        NSLog(@"%@",@(isin));
+        
+        
+//        [imageV loadImageUrl:@"https://static-dev.dhsf.996box.com/box_test/gift_animation/64f826b3df546.svga" complete:^(SVGAVideoEntity * _Nonnull videoItem) {
+//            imageV.videoItem = videoItem;
+//            [imageV startAnimation];
+//        }];
+        
+    });
+     
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

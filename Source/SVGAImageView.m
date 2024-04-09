@@ -92,6 +92,11 @@ static SVGAParser *sharedParser;
     } failureBlock:nil];
 }
 
+//检查目标svga是否已经在缓存中
++ (BOOL)checkIsInCache:(nullable NSString *)path {
+    return [sharedParser checkIsInCache:path];
+}
+
 #pragma mark -  set/get
 - (void)setImageData:(NSData *)imageData{
     [self loadImageData:imageData complete:nil];
