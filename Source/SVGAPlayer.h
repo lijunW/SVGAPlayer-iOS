@@ -47,6 +47,8 @@ typedef void(^SVGAPlayerDynamicDrawingBlock)(CALayer *contentLayer, NSInteger fr
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)aKey;
 - (void)setImageWithURL:(NSURL *)URL forKey:(NSString *)aKey;
+///roundCorner: 加圆角
+- (void)setImageWithURL:(NSURL *)URL forKey:(NSString *)aKey shouldRoundCorner:(BOOL)roundCorner;
 - (void)setImage:(UIImage *)image forKey:(NSString *)aKey referenceLayer:(CALayer *)referenceLayer; // deprecated from 2.0.1
 - (void)setAttributedText:(NSAttributedString *)attributedText forKey:(NSString *)aKey;
 - (void)setDrawingBlock:(SVGAPlayerDynamicDrawingBlock)drawingBlock forKey:(NSString *)aKey;

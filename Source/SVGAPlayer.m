@@ -438,9 +438,17 @@
 }
 
 - (void)setImageWithURL:(NSURL *)URL forKey:(NSString *)aKey {
+    [self setImageWithURL:URL forKey:aKey shouldRoundCorner:NO];
+}
+
+- (void)setImageWithURL:(NSURL *)URL forKey:(NSString *)aKey shouldRoundCorner:(BOOL)roundCorner {
+
     [[[NSURLSession sharedSession] dataTaskWithURL:URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil && data != nil) {
             UIImage *image = [UIImage imageWithData:data];
+            if (roundCorner) {
+                image = [self roundedCornerImage:image];
+            }
             if (image != nil) {
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [self setImage:image forKey:aKey];
@@ -448,6 +456,27 @@
             }
         }
     }] resume];
+}
+
+- (UIImage *)roundedCornerImage:(UIImage *)originImage {
+    if (originImage == nil) {
+        return nil;
+    }
+    
+    CGFloat w = originImage.size.width;
+    CGFloat h = originImage.size.height;
+    CGFloat scale = originImage.scale;
+    CGFloat cornerRadius = MIN(w, h) / 2.0;
+
+    UIImage *image = nil;
+    CGRect imageFrame = CGRectMake(0, 0, w, h);
+    UIGraphicsBeginImageContextWithOptions(originImage.size, NO, scale);
+    [[UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:cornerRadius * scale] addClip];
+    [originImage drawInRect:imageFrame];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)aKey referenceLayer:(CALayer *)referenceLayer {
