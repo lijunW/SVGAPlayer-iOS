@@ -7,6 +7,7 @@
 //
 
 #import "SVGAPlayer.h"
+#import "SVGAParser.h"
 
 @interface SVGAImageView : SVGAPlayer
 
@@ -22,7 +23,7 @@
 - (void)loadImageUrl:(NSString *_Nonnull)imageUrl
              complete:(void(^_Nullable)(SVGAVideoEntity * _Nonnull videoItem))completeBlock;
 
-//检查目标svga是否已经在缓存中
-+ (BOOL)checkIsInCache:(nullable NSString *)path;
+//暴露SVGAParser
++ (nonnull SVGAParser *)shareParser;
 
 @end

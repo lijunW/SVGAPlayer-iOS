@@ -62,15 +62,21 @@ static SVGAParser *parser;
     ///信封
     NSString *path2 = @"https://static-dev.dhsf.996box.com/box_test/gift_animation/65129374e8113.svga";
 
-    [imageV loadImageUrl:path2 complete:nil];
-
-    [self.view addSubview:imageV];
+    ///飘屏
+    NSString *path3 = @"http://static-dev.dhsf.996box.com/box/streamer/app1.svga";
     
+    
+//    [imageV loadImageUrl:path2 complete:nil];
+//
+//    [self.view addSubview:imageV];
+    
+    
+//    [[SVGAImageView shareParser] downloadSVGADataWithURLString:path3];
+//    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        BOOL isin = [SVGAImageView checkIsInCache:path2];
+        BOOL isin = [[SVGAImageView shareParser] checkIsInCache:path3];
         NSLog(@"%@",@(isin));
-        
-        
+
 //        [imageV loadImageUrl:@"https://static-dev.dhsf.996box.com/box_test/gift_animation/64f826b3df546.svga" complete:^(SVGAVideoEntity * _Nonnull videoItem) {
 //            imageV.videoItem = videoItem;
 //            [imageV startAnimation];

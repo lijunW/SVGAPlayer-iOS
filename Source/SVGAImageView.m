@@ -92,9 +92,9 @@ static SVGAParser *sharedParser;
     } failureBlock:nil];
 }
 
-//检查目标svga是否已经在缓存中
-+ (BOOL)checkIsInCache:(nullable NSString *)path {
-    return [sharedParser checkIsInCache:path];
+//暴露SVGAParser
++ (nonnull SVGAParser *)shareParser {
+    return sharedParser;
 }
 
 #pragma mark -  set/get
