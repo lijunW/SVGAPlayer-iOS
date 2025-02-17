@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "Apache 2.0"
   s.author       = { "PonyCui" => "cuiminghui1@yy.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/siriusicy/SVGAPlayer-iOS.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/lijunW/SVGAPlayer-iOS.git", :branch => 'privacy' }
   s.subspec 'Core' do |ss|
     ss.source_files  = "Source/*.{h,m}", "Source/Tool/*.{h,m}"
     ss.requires_arc = true
