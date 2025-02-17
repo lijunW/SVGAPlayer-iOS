@@ -25,9 +25,7 @@ Pod::Spec.new do |s|
   s.subspec 'ProtoFiles' do |ss|
     ss.source_files  = "Source/pbobjc/*.{h,m}"
     ss.requires_arc = false
-    ss.dependency 'Protobuf',
-        :git => 'https://github.com/lijunW/protobuf.git',
-        :branch => "3221Privacy"                             # 替换为实际分支名（如 dev、feature/xxx）
+    ss.dependency 'Protobuf'
     ss.pod_target_xcconfig = {
       'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1',
     }
