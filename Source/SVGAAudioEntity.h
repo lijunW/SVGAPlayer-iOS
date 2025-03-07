@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SVGAProtoAudioEntity;
+//@class SVGAProtoAudioEntity;
 
 @interface SVGAAudioEntity : NSObject
 
@@ -17,6 +17,6 @@
 @property (nonatomic, readonly) NSInteger endFrame;
 @property (nonatomic, readonly) NSInteger startTime;
     
-- (instancetype)initWithProtoObject:(SVGAProtoAudioEntity *)protoObject;
+//- (instancetype)initWithProtoObject:(SVGAProtoAudioEntity *)protoObject;
     
 @end

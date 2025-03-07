@@ -35,7 +35,6 @@
 		90A677031D13AE19008A69F3 /* SVGAVideoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A677021D13AE19008A69F3 /* SVGAVideoEntity.m */; };
 		90A677061D13BF77008A69F3 /* SVGAPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A677051D13BF77008A69F3 /* SVGAPlayer.m */; };
 		90CB64F91EF297E800DAA382 /* SVGAPlayer React-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90CB64F81EF297E800DAA382 /* SVGAPlayer React-Info.plist */; };
-		90D7CA161F7FA07A006E74F0 /* Svga.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D7CA141F7FA079006E74F0 /* Svga.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		90D7CA1B1F7FB114006E74F0 /* rose_2.0.0.svga in Resources */ = {isa = PBXBuildFile; fileRef = 90D7CA191F7FB114006E74F0 /* rose_2.0.0.svga */; };
 		90D7CA1C1F7FB114006E74F0 /* rose_1.5.0.svga in Resources */ = {isa = PBXBuildFile; fileRef = 90D7CA1A1F7FB114006E74F0 /* rose_1.5.0.svga */; };
 		90D7CA1E1F7FB34E006E74F0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D7CA1D1F7FB34E006E74F0 /* libz.tbd */; };
@@ -91,8 +90,6 @@
 		90A677041D13BF77008A69F3 /* SVGAPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGAPlayer.h; sourceTree = "<group>"; };
 		90A677051D13BF77008A69F3 /* SVGAPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGAPlayer.m; sourceTree = "<group>"; };
 		90CB64F81EF297E800DAA382 /* SVGAPlayer React-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SVGAPlayer React-Info.plist"; sourceTree = "<group>"; };
-		90D7CA141F7FA079006E74F0 /* Svga.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Svga.pbobjc.m; sourceTree = "<group>"; };
-		90D7CA151F7FA079006E74F0 /* Svga.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Svga.pbobjc.h; sourceTree = "<group>"; };
 		90D7CA191F7FB114006E74F0 /* rose_2.0.0.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rose_2.0.0.svga; sourceTree = "<group>"; };
 		90D7CA1A1F7FB114006E74F0 /* rose_1.5.0.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rose_1.5.0.svga; sourceTree = "<group>"; };
 		90D7CA1D1F7FB34E006E74F0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -182,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				845EF9EB2A85C55900CEA989 /* Tool */,
-				90D7CA081F7E2D4D006E74F0 /* pbobjc */,
 				90A676F81D13A81F008A69F3 /* SVGA.h */,
 				90A676F91D13A81F008A69F3 /* SVGA.m */,
 				90A676FB1D13A82A008A69F3 /* SVGAParser.h */,
@@ -229,15 +225,6 @@
 				90D7CA191F7FB114006E74F0 /* rose_2.0.0.svga */,
 			);
 			path = Samples;
-			sourceTree = "<group>";
-		};
-		90D7CA081F7E2D4D006E74F0 /* pbobjc */ = {
-			isa = PBXGroup;
-			children = (
-				90D7CA151F7FA079006E74F0 /* Svga.pbobjc.h */,
-				90D7CA141F7FA079006E74F0 /* Svga.pbobjc.m */,
-			);
-			path = pbobjc;
 			sourceTree = "<group>";
 		};
 		B8EE95EA56FFE89CDEC9D8C3 /* Frameworks */ = {
@@ -369,7 +356,6 @@
 				90A676FA1D13A81F008A69F3 /* SVGA.m in Sources */,
 				90A677061D13BF77008A69F3 /* SVGAPlayer.m in Sources */,
 				90A364D41E5AEC1C009347F1 /* SVGAVectorLayer.m in Sources */,
-				90D7CA161F7FA07A006E74F0 /* Svga.pbobjc.m in Sources */,
 				90A676E21D13A6DF008A69F3 /* main.m in Sources */,
 				90A676FD1D13A82A008A69F3 /* SVGAParser.m in Sources */,
 			);

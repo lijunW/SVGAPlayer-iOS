@@ -26,10 +26,10 @@
 - (void)resetImagesWithJSONObject:(NSDictionary *)JSONObject;
 - (void)resetSpritesWithJSONObject:(NSDictionary *)JSONObject;
 
-- (instancetype)initWithProtoObject:(SVGAProtoMovieEntity *)protoObject cacheDir:(NSString *)cacheDir;
-- (void)resetImagesWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
-- (void)resetSpritesWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
-- (void)resetAudiosWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
+//- (instancetype)initWithProtoObject:(SVGAProtoMovieEntity *)protoObject cacheDir:(NSString *)cacheDir;
+//- (void)resetImagesWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
+//- (void)resetSpritesWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
+//- (void)resetAudiosWithProtoObject:(SVGAProtoMovieEntity *)protoObject;
 
 + (SVGAVideoEntity *)readCache:(NSString *)cacheKey;
 // NSCache缓存

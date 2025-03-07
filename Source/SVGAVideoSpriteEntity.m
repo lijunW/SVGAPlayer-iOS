@@ -11,7 +11,7 @@
 #import "SVGABitmapLayer.h"
 #import "SVGAContentLayer.h"
 #import "SVGAVectorLayer.h"
-#import "Svga.pbobjc.h"
+//#import "Svga.pbobjc.h"
 
 @implementation SVGAVideoSpriteEntity
 
@@ -38,28 +38,28 @@
     return self;
 }
 
-- (instancetype)initWithProtoObject:(SVGAProtoSpriteEntity *)protoObject {
-    self = [super init];
-    if (self) {
-        if ([protoObject isKindOfClass:[SVGAProtoSpriteEntity class]]) {
-            NSString *imageKey = protoObject.imageKey;
-            NSString *matteKey = protoObject.matteKey;
-            NSArray<NSDictionary *> *protoFrames = [protoObject.framesArray copy];
-            if ([imageKey isKindOfClass:[NSString class]] && [protoFrames isKindOfClass:[NSArray class]]) {
-                NSMutableArray<SVGAVideoSpriteFrameEntity *> *frames = [[NSMutableArray alloc] init];
-                [protoFrames enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    if ([obj isKindOfClass:[SVGAProtoFrameEntity class]]) {
-                        [frames addObject:[[SVGAVideoSpriteFrameEntity alloc] initWithProtoObject:obj]];
-                    }
-                }];
-                _imageKey = imageKey;
-                _frames = frames;
-                _matteKey = matteKey;
-            }
-        }
-    }
-    return self;
-}
+//- (instancetype)initWithProtoObject:(SVGAProtoSpriteEntity *)protoObject {
+//    self = [super init];
+//    if (self) {
+//        if ([protoObject isKindOfClass:[SVGAProtoSpriteEntity class]]) {
+//            NSString *imageKey = protoObject.imageKey;
+//            NSString *matteKey = protoObject.matteKey;
+//            NSArray<NSDictionary *> *protoFrames = [protoObject.framesArray copy];
+//            if ([imageKey isKindOfClass:[NSString class]] && [protoFrames isKindOfClass:[NSArray class]]) {
+//                NSMutableArray<SVGAVideoSpriteFrameEntity *> *frames = [[NSMutableArray alloc] init];
+//                [protoFrames enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                    if ([obj isKindOfClass:[SVGAProtoFrameEntity class]]) {
+//                        [frames addObject:[[SVGAVideoSpriteFrameEntity alloc] initWithProtoObject:obj]];
+//                    }
+//                }];
+//                _imageKey = imageKey;
+//                _frames = frames;
+//                _matteKey = matteKey;
+//            }
+//        }
+//    }
+//    return self;
+//}
 
 - (SVGAContentLayer *)requestLayerWithBitmap:(UIImage *)bitmap {
     SVGAContentLayer *layer = [[SVGAContentLayer alloc] initWithFrames:self.frames];

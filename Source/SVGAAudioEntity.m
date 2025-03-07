@@ -7,7 +7,7 @@
 //
 
 #import "SVGAAudioEntity.h"
-#import "Svga.pbobjc.h"
+//#import "Svga.pbobjc.h"
 
 @interface SVGAAudioEntity ()
 
@@ -20,15 +20,15 @@
 
 @implementation SVGAAudioEntity
 
-- (instancetype)initWithProtoObject:(SVGAProtoAudioEntity *)protoObject {
-    self = [super init];
-    if (self) {
-        _audioKey = protoObject.audioKey;
-        _startFrame = protoObject.startFrame;
-        _endFrame = protoObject.endFrame;
-        _startTime = protoObject.startTime;
-    }
-    return self;
-}
+//- (instancetype)initWithProtoObject:(SVGAProtoAudioEntity *)protoObject {
+//    self = [super init];
+//    if (self) {
+//        _audioKey = protoObject.audioKey;
+//        _startFrame = protoObject.startFrame;
+//        _endFrame = protoObject.endFrame;
+//        _startTime = protoObject.startTime;
+//    }
+//    return self;
+//}
     
 @end

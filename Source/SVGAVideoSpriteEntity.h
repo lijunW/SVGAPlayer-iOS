@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @class SVGAVideoSpriteFrameEntity, SVGAContentLayer;
-@class SVGAProtoSpriteEntity;
+//@class SVGAProtoSpriteEntity;
 
 @interface SVGAVideoSpriteEntity : NSObject
 
@@ -19,7 +19,7 @@
 @property (nonatomic, readonly) NSString *matteKey;
 
 - (instancetype)initWithJSONObject:(NSDictionary *)JSONObject;
-- (instancetype)initWithProtoObject:(SVGAProtoSpriteEntity *)protoObject;
+//- (instancetype)initWithProtoObject:(SVGAProtoSpriteEntity *)protoObject;
 
 - (SVGAContentLayer *)requestLayerWithBitmap:(UIImage *)bitmap;
 

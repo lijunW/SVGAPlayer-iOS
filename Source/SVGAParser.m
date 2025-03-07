@@ -8,7 +8,7 @@
 
 #import "SVGAParser.h"
 #import "SVGAVideoEntity.h"
-#import "Svga.pbobjc.h"
+//#import "Svga.pbobjc.h"
 #import <zlib.h>
 #import <SSZipArchive/SSZipArchive.h>
 #import <CommonCrypto/CommonDigest.h>
@@ -158,30 +158,30 @@ static NSOperationQueue *unzipQueue;
         if ([[NSFileManager defaultManager] fileExistsAtPath:[cacheDir stringByAppendingString:@"/movie.binary"]]) {
             NSError *err;
             NSData *protoData = [NSData dataWithContentsOfFile:[cacheDir stringByAppendingString:@"/movie.binary"]];
-            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:protoData error:&err];
-            if (!err && [protoObject isKindOfClass:[SVGAProtoMovieEntity class]]) {
-                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:cacheDir];
-                [videoItem resetImagesWithProtoObject:protoObject];
-                [videoItem resetSpritesWithProtoObject:protoObject];
-                [videoItem resetAudiosWithProtoObject:protoObject];
-                if (self.enabledMemoryCache) {
-                    [videoItem saveCache:cacheKey];
-                } else {
-                    [videoItem saveWeakCache:cacheKey];
-                }
-                if (completionBlock) {
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                        completionBlock(videoItem);
-                    }];
-                }
-            }
-            else {
+//            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:protoData error:&err];
+//            if (!err && [protoObject isKindOfClass:[SVGAProtoMovieEntity class]]) {
+//                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:cacheDir];
+//                [videoItem resetImagesWithProtoObject:protoObject];
+//                [videoItem resetSpritesWithProtoObject:protoObject];
+//                [videoItem resetAudiosWithProtoObject:protoObject];
+//                if (self.enabledMemoryCache) {
+//                    [videoItem saveCache:cacheKey];
+//                } else {
+//                    [videoItem saveWeakCache:cacheKey];
+//                }
+//                if (completionBlock) {
+//                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                        completionBlock(videoItem);
+//                    }];
+//                }
+//            }
+//            else {
                 if (failureBlock) {
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         failureBlock([NSError errorWithDomain:NSFilePathErrorKey code:-1 userInfo:nil]);
                     }];
                 }
-            }
+//            }
         }
         else {
             NSError *err;
@@ -249,23 +249,23 @@ static NSOperationQueue *unzipQueue;
         [parseQueue addOperationWithBlock:^{
             NSData *inflateData = [self zlibInflate:data];
             NSError *err;
-            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:inflateData error:&err];
-            if (!err && [protoObject isKindOfClass:[SVGAProtoMovieEntity class]]) {
-                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:@""];
-                [videoItem resetImagesWithProtoObject:protoObject];
-                [videoItem resetSpritesWithProtoObject:protoObject];
-                [videoItem resetAudiosWithProtoObject:protoObject];
-                if (self.enabledMemoryCache) {
-                    [videoItem saveCache:cacheKey];
-                } else {
-                    [videoItem saveWeakCache:cacheKey];
-                }
-                if (completionBlock) {
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                        completionBlock(videoItem);
-                    }];
-                }
-            }
+//            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:inflateData error:&err];
+//            if (!err && [protoObject isKindOfClass:[SVGAProtoMovieEntity class]]) {
+//                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:@""];
+//                [videoItem resetImagesWithProtoObject:protoObject];
+//                [videoItem resetSpritesWithProtoObject:protoObject];
+//                [videoItem resetAudiosWithProtoObject:protoObject];
+//                if (self.enabledMemoryCache) {
+//                    [videoItem saveCache:cacheKey];
+//                } else {
+//                    [videoItem saveWeakCache:cacheKey];
+//                }
+//                if (completionBlock) {
+//                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                        completionBlock(videoItem);
+//                    }];
+//                }
+//            }
         }];
         return ;
     }
@@ -308,29 +308,29 @@ static NSOperationQueue *unzipQueue;
                         if ([[NSFileManager defaultManager] fileExistsAtPath:[cacheDir stringByAppendingString:@"/movie.binary"]]) {
                             NSError *err;
                             NSData *protoData = [NSData dataWithContentsOfFile:[cacheDir stringByAppendingString:@"/movie.binary"]];
-                            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:protoData error:&err];
-                            if (!err) {
-                                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:cacheDir];
-                                [videoItem resetImagesWithProtoObject:protoObject];
-                                [videoItem resetSpritesWithProtoObject:protoObject];
-                                if (self.enabledMemoryCache) {
-                                    [videoItem saveCache:cacheKey];
-                                } else {
-                                    [videoItem saveWeakCache:cacheKey];
-                                }
-                                if (completionBlock) {
-                                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                        completionBlock(videoItem);
-                                    }];
-                                }
-                            }
-                            else {
+//                            SVGAProtoMovieEntity *protoObject = [SVGAProtoMovieEntity parseFromData:protoData error:&err];
+//                            if (!err) {
+//                                SVGAVideoEntity *videoItem = [[SVGAVideoEntity alloc] initWithProtoObject:protoObject cacheDir:cacheDir];
+//                                [videoItem resetImagesWithProtoObject:protoObject];
+//                                [videoItem resetSpritesWithProtoObject:protoObject];
+//                                if (self.enabledMemoryCache) {
+//                                    [videoItem saveCache:cacheKey];
+//                                } else {
+//                                    [videoItem saveWeakCache:cacheKey];
+//                                }
+//                                if (completionBlock) {
+//                                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                                        completionBlock(videoItem);
+//                                    }];
+//                                }
+//                            }
+//                            else {
                                 if (failureBlock) {
                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                         failureBlock([NSError errorWithDomain:NSFilePathErrorKey code:-1 userInfo:nil]);
                                     }];
                                 }
-                            }
+//                            }
                         }
                         else {
                             NSError *err;

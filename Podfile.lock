@@ -1,20 +1,16 @@
 PODS:
-  - Protobuf (3.22.1)
   - SSZipArchive (2.1.5)
 
 DEPENDENCIES:
-  - Protobuf (= 3.22.1)
   - SSZipArchive (~> 2.1.4)
 
 SPEC REPOS:
   trunk:
-    - Protobuf
     - SSZipArchive
 
 SPEC CHECKSUMS:
-  Protobuf: d7f7c8329edf5eb8af65547a8ba3e9c1cee927d5
   SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
 
-PODFILE CHECKSUM: f05e9965890bcdf92b19cc389d81d5cfee1a89d1
+PODFILE CHECKSUM: df592b310516da532cea9d5af851f21bc6083d91
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.16.2
