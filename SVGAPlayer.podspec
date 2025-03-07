@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
     ss.requires_arc = false
     # ss.dependency 'Protobuf', '= 3.22.1'
     ss.pod_target_xcconfig = {
-      'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1',
+      # 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1',
+      'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited)',
     }
   end  
 end
